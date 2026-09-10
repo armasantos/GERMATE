@@ -42,7 +42,7 @@ export default function Home() {
     <aside className="sidebar">
       <div className="brand">GERMATE<small>ENGINEERING MATERIALS</small></div>
       <nav className="nav" aria-label="Navegação principal">
-        <a className="active" href="#dashboard">Visão geral</a><a href="#materials">Material Master</a><a href="#documents">Documentos técnicos</a><a href="#audit">Auditoria</a>
+        <a className="active" href="#dashboard">Visão geral</a><a href="#materials">Material Master</a><a href="#documents">Documentos técnicos</a><a href="#audit">Auditoria</a><a href="/admin">Administração</a>
       </nav>
       <div className="sidebar-note">Ambiente demo<br />Organização: GERMATE Engenharia</div>
     </aside>
