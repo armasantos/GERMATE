@@ -66,4 +66,4 @@ Use este formato para novas decisões:
 
 ## Próxima ação sugerida
 
-Implementar a interface de autenticação e cadastro, validar as políticas RLS em um projeto Supabase de desenvolvimento e adicionar testes de API para leitura, criação, duplicidade e isolamento entre organizações.
+Aplicar o schema em um projeto Supabase de desenvolvimento, provisionar organização, catálogos e primeiro perfil conforme SUPABASE_SETUP.md, e validar o workflow de CI no GitHub. Depois, adicionar testes automatizados de API para duplicidade, revisão e isolamento entre organizações.

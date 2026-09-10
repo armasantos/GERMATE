@@ -1,5 +1,7 @@
 # GERMATE — Gerenciador de Materiais de Engenharia
 
+[![CI](https://github.com/armasantos/GERMATE/actions/workflows/ci.yml/badge.svg)](https://github.com/armasantos/GERMATE/actions/workflows/ci.yml)
+
 O GERMATE é uma plataforma para estruturar, rastrear e aplicar conhecimento e dados de materiais de engenharia em projetos, compras, fabricação, inspeção, qualidade e operação.
 
 ## Fonte de verdade
