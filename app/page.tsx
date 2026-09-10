@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { listMaterials, type Material } from "@/lib/domain";
 
 type Catalog = { groups: { id: string; name: string }[]; disciplines: { id: string; name: string }[] };
@@ -11,10 +11,19 @@ export default function Home() {
   const [catalog, setCatalog] = useState<Catalog>({ groups: [], disciplines: [] });
   const [formMessage, setFormMessage] = useState("");
   const [newMaterial, setNewMaterial] = useState({ code: "", name: "", className: "", groupId: "", disciplineId: "" });
-  const materials = useMemo(() => listMaterials(query), [query]);
+  const [materials, setMaterials] = useState<Material[]>(() => listMaterials());
   useEffect(() => {
     fetch("/api/catalog").then((response) => response.json()).then((data) => setCatalog(data)).catch(() => setCatalog({ groups: [], disciplines: [] }));
   }, []);
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      fetch("/api/materials?q=" + encodeURIComponent(query))
+        .then((response) => response.ok ? response.json() : Promise.reject(new Error("API indisponível")))
+        .then((data) => setMaterials(data.data ?? []))
+        .catch(() => setMaterials(listMaterials(query)));
+    }, 150);
+    return () => window.clearTimeout(timer);
+  }, [query]);
 
   async function createMaterial(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -25,8 +34,9 @@ export default function Home() {
       setFormMessage(data.error ?? "Não foi possível criar o material.");
       return;
     }
-    setFormMessage("Material criado. Atualize a página para consultar a nova revisão.");
+    setFormMessage("Material criado. A lista será atualizada.");
     setShowForm(false);
+    setQuery("");
   }
   return <div className="shell">
     <aside className="sidebar">
