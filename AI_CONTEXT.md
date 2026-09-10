@@ -13,7 +13,8 @@ Construir o GERMATE como uma plataforma especializada em materiais de engenharia
 - A interface e GET /api/materials usam dados demo em memória para permitir execução local.
 - O contrato inicial de persistência está em database/001_initial_schema.sql.
 - A decisão de stack está registrada em docs/02_ARQUITETURA/DEC-001-stack-mvp.md.
-- A integração real com Supabase, autenticação, RLS e cadastro persistente ainda está pendente.
+- A API já usa Supabase quando as variáveis de ambiente estão configuradas; sem elas, permanece em modo demo somente leitura.
+- O cadastro persistente exige autenticação, perfil vinculado a organização e a migration SQL aplicada no Supabase.
 - Não trate dados demo como dados de produção.
 
 ## Regras de continuidade
@@ -64,6 +65,5 @@ Use este formato para novas decisões:
 
 ## Próxima ação sugerida
 
-Implementar a integração Supabase do Material Master: autenticação, organização atual, leitura persistente, criação de material, revisão inicial e evento de auditoria, mantendo o modo demo disponível para desenvolvimento local.
-
+Implementar a interface de autenticação e cadastro, validar as políticas RLS em um projeto Supabase de desenvolvimento e adicionar testes de API para leitura, criação, duplicidade e isolamento entre organizações.
 

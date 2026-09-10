@@ -1,6 +1,12 @@
 create extension if not exists pgcrypto;
 create type material_status as enum ('RASCUNHO', 'EM_ANALISE', 'APROVADO', 'ATIVO', 'OBSOLETO');
 create table if not exists organizations (id uuid primary key default gen_random_uuid(), name text not null, created_at timestamptz not null default now());
+create table if not exists profiles (
+  id uuid primary key references auth.users(id) on delete cascade,
+  organization_id uuid not null references organizations(id),
+  display_name text not null,
+  created_at timestamptz not null default now()
+);
 create table if not exists disciplines (id uuid primary key default gen_random_uuid(), organization_id uuid not null references organizations(id), name text not null, unique (organization_id, name));
 create table if not exists material_groups (id uuid primary key default gen_random_uuid(), organization_id uuid not null references organizations(id), name text not null, unique (organization_id, name));
 create table if not exists materials (
@@ -30,9 +36,17 @@ create table if not exists audit_events (
 create index if not exists materials_search_idx on materials using gin (to_tsvector('simple', code || ' ' || name || ' ' || class_name));
 create index if not exists audit_events_entity_idx on audit_events(entity_type, entity_id, created_at desc);
 alter table organizations enable row level security;
+alter table profiles enable row level security;
 alter table disciplines enable row level security;
 alter table material_groups enable row level security;
 alter table materials enable row level security;
 alter table material_revisions enable row level security;
 alter table technical_documents enable row level security;
 alter table audit_events enable row level security;
+create policy "profiles_self_read" on profiles for select using (id = auth.uid());
+create policy "materials_org_read" on materials for select using (organization_id = (select organization_id from profiles where id = auth.uid()));
+create policy "materials_org_insert" on materials for insert with check (organization_id = (select organization_id from profiles where id = auth.uid()));
+create policy "revisions_org_read" on material_revisions for select using (exists (select 1 from materials m where m.id = material_id and m.organization_id = (select organization_id from profiles where id = auth.uid())));
+create policy "revisions_org_insert" on material_revisions for insert with check (exists (select 1 from materials m where m.id = material_id and m.organization_id = (select organization_id from profiles where id = auth.uid())));
+create policy "audit_org_insert" on audit_events for insert with check (organization_id = (select organization_id from profiles where id = auth.uid()));
+create policy "audit_org_read" on audit_events for select using (organization_id = (select organization_id from profiles where id = auth.uid()));
