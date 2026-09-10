@@ -23,7 +23,7 @@ Sem as variáveis do Supabase, a aplicação funciona em modo demo somente leitu
 
 ## Demo no GitHub Pages
 
-A demo estática do Material Master é publicada automaticamente em https://armasantos.github.io/GERMATE/ após a execução do workflow de Pages. Ela permite pesquisar e cadastrar dados apenas no navegador; persistência, autenticação e auditoria reais usam a aplicação Next.js com Supabase.
+A demo estática do Material Master é publicada automaticamente em https://armasantos.github.io/GERMATE/ pelo workflow de Pages. Ela permite pesquisar e cadastrar dados apenas no navegador; persistência, autenticação e auditoria reais usam a aplicação Next.js com Supabase.
 
 Para validação:
 
