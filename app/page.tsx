@@ -37,7 +37,7 @@ export default function Home() {
       <div className="sidebar-note">Ambiente demo<br />Organização: GERMATE Engenharia</div>
     </aside>
     <main className="main">
-      <header className="topbar"><span>Material Engineering Digital Thread</span><div className="avatar">AS</div></header>
+      <header className="topbar"><span>Material Engineering Digital Thread</span><div style={{ alignItems: "center", display: "flex", gap: 14 }}><a className="back-link" href="/login">Entrar</a><div className="avatar">AS</div></div></header>
       <section className="content" id="dashboard">
         <div className="eyebrow">Material Master · MVP</div><h1>Conhecimento técnico em contexto.</h1>
         <p className="intro">Consulte materiais, revisões e propriedades com rastreabilidade desde a primeira versão.</p>
