@@ -9,9 +9,12 @@ Construir o GERMATE como uma plataforma especializada em materiais de engenharia
 ## Situação atual
 
 - O repositório foi inicializado a partir do Documento Mestre v1.1.
-- Não há aplicação implementada ainda.
-- Não há stack tecnológica, banco de dados ou provedor de autenticação escolhidos neste repositório.
-- Não trate decisões técnicas como definidas só porque aparecem como possibilidades no Documento Mestre; valide-as antes de consolidar a arquitetura.
+- O primeiro incremento do MVP está implementado com Next.js/TypeScript.
+- A interface e GET /api/materials usam dados demo em memória para permitir execução local.
+- O contrato inicial de persistência está em database/001_initial_schema.sql.
+- A decisão de stack está registrada em docs/02_ARQUITETURA/DEC-001-stack-mvp.md.
+- A integração real com Supabase, autenticação, RLS e cadastro persistente ainda está pendente.
+- Não trate dados demo como dados de produção.
 
 ## Regras de continuidade
 
@@ -61,7 +64,6 @@ Use este formato para novas decisões:
 
 ## Próxima ação sugerida
 
-Transformar o Documento Mestre em uma matriz de requisitos rastreáveis, sem iniciar a implementação antes de fechar as decisões de stack, segurança, dados mestres, versionamento e auditoria.
-
+Implementar a integração Supabase do Material Master: autenticação, organização atual, leitura persistente, criação de material, revisão inicial e evento de auditoria, mantendo o modo demo disponível para desenvolvimento local.
 
 

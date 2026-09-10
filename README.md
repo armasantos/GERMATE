@@ -8,7 +8,19 @@ A especificação funcional, conceitual e técnica está em [GERMATE_DOCUMENTO_M
 
 ## Estado inicial
 
-Este repositório foi iniciado a partir do Documento Mestre v1.1. A implementação de software ainda deve ser planejada e construída por incrementos pequenos, verificáveis e rastreáveis.
+O primeiro incremento do MVP já está iniciado. A interface demo e a API de pesquisa usam dados em memória; o contrato persistente está em database/001_initial_schema.sql.
+
+## Executar localmente
+
+    pnpm install
+    pnpm dev
+
+Abra http://localhost:3000. A API inicial está disponível em GET /api/materials?q=termo.
+
+Para validação:
+
+    pnpm typecheck
+    pnpm build
 
 ## Como uma IA deve continuar o desenvolvimento
 
@@ -31,6 +43,5 @@ Este repositório foi iniciado a partir do Documento Mestre v1.1. A implementaç
 ## Licença
 
 Defina a licença antes de distribuir o projeto publicamente.
-
 
 
