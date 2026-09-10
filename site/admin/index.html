@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GERMATE — Administração do Sistema</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">GERMATE<span>IMP-001 · ADMINISTRAÇÃO</span></div>
+      <nav><a href="../">Material Master</a><a class="active" href="#users">Usuários e perfis</a><a href="#permissions">Permissões</a><a href="#parameters">Parâmetros</a><a href="#audit">Auditoria</a></nav>
+      <p class="side-note">Demo pública<br>Fonte: dados demonstrativos</p>
+    </aside>
+    <main>
+      <header><span>Administração do Sistema</span><a class="login" href="../">Material Master</a><div class="avatar">AD</div></header>
+      <section class="content">
+        <div class="eyebrow">IMP-001 · Administração do Sistema</div>
+        <h1>Controle, segurança e governança.</h1>
+        <p class="intro">Usuários, papéis, parâmetros e eventos administrativos em um só lugar.</p>
+        <div class="cards"><div><small>Usuários</small><strong>2</strong></div><div><small>Permissões</small><strong>3</strong></div><div><small>Parâmetros</small><strong>2</strong></div><div><small>Eventos recentes</small><strong>2</strong></div></div>
+        <section id="users"><div class="toolbar"><h2>Usuários e perfis</h2></div><div class="table-wrap"><table><thead><tr><th>Usuário</th><th>Papel</th><th>Status</th><th>Último acesso</th></tr></thead><tbody><tr><td><strong>Administrador GERMATE</strong><br><span>admin@germate.demo</span></td><td>ADMINISTRADOR</td><td><span class="status">ATIVO</span></td><td>10/09/2026 13:00</td></tr><tr><td><strong>Engenharia de Materiais</strong><br><span>materiais@germate.demo</span></td><td>ENGENHEIRO MATERIAIS</td><td><span class="status">ATIVO</span></td><td>09/09/2026 16:20</td></tr></tbody></table></div></section>
+        <section id="permissions" style="margin-top:28px"><div class="toolbar"><h2>Matriz de permissões</h2></div><div class="table-wrap"><table><thead><tr><th>Papel</th><th>Permissão</th><th>Descrição</th></tr></thead><tbody><tr><td>ADMINISTRADOR</td><td class="code">admin.users.manage</td><td>Administrar usuários e perfis</td></tr><tr><td>ADMINISTRADOR</td><td class="code">admin.parameters.manage</td><td>Administrar parâmetros do sistema</td></tr><tr><td>AUDITOR</td><td class="code">admin.audit.read</td><td>Consultar auditoria</td></tr></tbody></table></div></section>
+        <section id="parameters" style="margin-top:28px"><div class="toolbar"><h2>Parâmetros do sistema</h2></div><div class="table-wrap"><table><thead><tr><th>Chave</th><th>Valor</th><th>Descrição</th></tr></thead><tbody><tr><td class="code">material.code.prefix</td><td>MAT-</td><td>Prefixo padrão para novos materiais</td></tr><tr><td class="code">audit.retention.days</td><td>2555</td><td>Retenção mínima da auditoria em dias</td></tr></tbody></table></div></section>
+        <section id="audit" style="margin-top:28px"><div class="toolbar"><h2>Auditoria recente</h2></div><div class="table-wrap"><table><thead><tr><th>Data/hora</th><th>Ator</th><th>Operação</th><th>Entidade</th></tr></thead><tbody><tr><td>10/09/2026 13:00</td><td>Administrador GERMATE</td><td>LOGIN</td><td>user</td></tr><tr><td>10/09/2026 12:45</td><td>Administrador GERMATE</td><td>CREATED</td><td>material</td></tr></tbody></table></div></section>
+      </section>
+      <footer>GERMATE · IMP-001 · Dados demonstrativos</footer>
+    </main>
+  </div>
+</body>
+</html>
