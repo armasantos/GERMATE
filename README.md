@@ -17,7 +17,7 @@ O primeiro incremento do MVP já está iniciado. A interface demo e a API de pes
 
 Abra http://localhost:3000. A API inicial está disponível em GET /api/materials?q=termo.
 
-Sem as variáveis do Supabase, a aplicação funciona em modo demo somente leitura. Para ativar autenticação e persistência, copie .env.example para .env.local, preencha as credenciais do projeto Supabase e execute database/001_initial_schema.sql no SQL Editor.
+Sem as variáveis do Supabase, a aplicação funciona em modo demo somente leitura. Para ativar autenticação e persistência, siga docs/02_ARQUITETURA/SUPABASE_SETUP.md.
 
 Para validação:
 
@@ -45,4 +45,3 @@ Para validação:
 ## Licença
 
 Defina a licença antes de distribuir o projeto publicamente.
-

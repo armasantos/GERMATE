@@ -44,6 +44,8 @@ alter table material_revisions enable row level security;
 alter table technical_documents enable row level security;
 alter table audit_events enable row level security;
 create policy "profiles_self_read" on profiles for select using (id = auth.uid());
+create policy "groups_org_read" on material_groups for select using (organization_id = (select organization_id from profiles where id = auth.uid()));
+create policy "disciplines_org_read" on disciplines for select using (organization_id = (select organization_id from profiles where id = auth.uid()));
 create policy "materials_org_read" on materials for select using (organization_id = (select organization_id from profiles where id = auth.uid()));
 create policy "materials_org_insert" on materials for insert with check (organization_id = (select organization_id from profiles where id = auth.uid()));
 create policy "revisions_org_read" on material_revisions for select using (exists (select 1 from materials m where m.id = material_id and m.organization_id = (select organization_id from profiles where id = auth.uid())));
