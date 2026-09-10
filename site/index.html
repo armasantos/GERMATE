@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GERMATE — Material Master</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">GERMATE<span>ENGINEERING MATERIALS</span></div>
+      <nav><a class="active" href="#dashboard">Visão geral</a><a href="#materials">Material Master</a><a href="#documents">Documentos técnicos</a><a href="#audit">Auditoria</a></nav>
+      <p class="side-note">Demo pública<br>Organização: GERMATE Engenharia</p>
+    </aside>
+    <main>
+      <header><span>Material Engineering Digital Thread</span><a class="login" href="#login">Entrar</a><div class="avatar">AS</div></header>
+      <section class="content" id="dashboard">
+        <div class="eyebrow">Material Master · MVP</div>
+        <h1>Conhecimento técnico em contexto.</h1>
+        <p class="intro">Consulte materiais, revisões e propriedades com rastreabilidade desde a primeira versão.</p>
+        <div class="cards"><div><small>Materiais cadastrados</small><strong id="count">3</strong></div><div><small>Revisões ativas</small><strong>3</strong></div><div><small>Em análise</small><strong>1</strong></div><div><small>Eventos auditáveis</small><strong>12</strong></div></div>
+        <div class="toolbar" id="materials"><div><h2>Material Master</h2><span>Pesquisa por código, nome, classe ou disciplina</span></div><button id="new-material">+ Novo material</button></div>
+        <div id="form-wrap" hidden><form id="material-form"><label>Código<input id="code" placeholder="MAT-..." required></label><label>Nome técnico<input id="name" required></label><label>Classe<input id="class-name" required></label><label>Grupo<select id="group"><option>Metálicos</option><option>Não metálicos</option></select></label><label>Disciplina<select id="discipline"><option>Mecânica</option><option>Tubulação</option><option>Integridade</option></select></label><div class="actions"><button type="submit">Salvar rascunho</button><button type="button" class="secondary" id="cancel">Cancelar</button></div></form></div>
+        <input id="search" class="search" placeholder="Pesquisar materiais..." aria-label="Pesquisar materiais">
+        <div class="table-wrap"><table><thead><tr><th>Código</th><th>Material</th><th>Classe</th><th>Disciplina</th><th>Revisão</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table></div>
+      </section>
+      <footer>GERMATE · Demo pública do MVP · Dados demonstrativos</footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
